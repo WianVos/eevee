@@ -28,14 +28,14 @@ roles:
       #- {type: shell, inline: 'sed -i "s/.*node_terminus.*//" /etc/puppetlabs/puppet/puppet.conf'}
       #- {type: shell, inline: 'sed -i "s/host.*/    host = 0\.0\.0\.0/" /etc/puppetlabs/puppetdb/conf.d/jetty.ini'}
       #- {type: shell, inline: '/bin/cp -rp /var/tmp/masterconfigfiles/fileserver.conf /etc/puppetlabs/puppet/fileserver.conf;chown 655 /etc/puppetlabs/puppet/fileserver.conf'}
-      - {type: shell, inline: '/bin/cp -rp /var/tmp/masterconfigfiles/hiera.yaml /etc/puppetlabs/puppet/code/environments/production/hiera.yaml;chown 655 /etc/puppetlabs/puppet/code/environments/production/hiera.yaml'}
-      #- {type: shell, inline: 'service pe-puppetmaster restart;service pe-puppetdb restart'}
+      - {type: shell, inline: '/bin/cp -rp /var/tmp/masterconfigfiles/hiera.yaml /etc/puppetlabs/puppet/hiera.yaml;chown 655 /etc/puppetlabs/puppet/hiera.yaml'}
+      - {type: shell, inline: '/bin/cp -rp /var/tmp/masterconfigfiles/site.pp /etc/puppetlabs/puppet/manifests/site.pp;chown 655 /etc/puppetlabs/puppet/manifests/site.pp'}
       #- {type: shell, inline: 'sed -i "s|.*modulepath.*|    modulepath=\$confdir/environments/\$environment/modules:/modules:/opt/puppet/share/puppet/modules|" /etc/puppetlabs/puppet/puppet.conf'}
       #- {type: shell, inline: 'apt-get install -y git ' }
       - {type: shell, inline: 'yum install -y git ' }
       #- {type: shell, inline: '/opt/puppet/bin/gem install r10k' }
       #- {type: shell, inline: '/opt/puppet/bin/gem install bundler' }
-      - {type: shell, inline: '/opt/puppet/bin/r10k deploy environment' }
+      - {type: shell, inline: '/usr/local/bin/r10k deploy environment' }
       #- {type: shell, inline: 'cd /var/tmp/masterconfigfiles; /opt/puppet/bin/bundle install; service pe-puppetserver restart' }
 
 

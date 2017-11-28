@@ -8,14 +8,7 @@
   - global
 
 :backends:
-  - mongodb
   - yaml
-
-:mongodb:
-  :connection:
-    :dbname: puppet
-    :collection: hiera
-    :host: localhost
 
 :yaml:
   :datadir: /hiera
